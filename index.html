@@ -4,6 +4,8 @@
     <head>
         <title>BLACKPINK</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+
+
     </head>
     <body>
         <h1>BLACKPINK IN YOUR AREA!</h1>
@@ -13,13 +15,53 @@
             <p>Blackpink (Korean: 블랙핑크; commonly stylized as BLACKPINK or BLΛƆKPIИK) is a South Korean girl group formed by YG Entertainment, consisting of members <a href="https://www.instagram.com/sooyaaa__/">Jisoo</a>, <a href="https://www.instagram.com/jennierubyjane/"> Jennie</a>, <a href="https://www.instagram.com/roses_are_rosie/"> Rosé</a>, and <a href="https://www.instagram.com/lalalalisa_m/"> Lalisa</a>. The group debuted in August 2016 with their single album Square One, which featured "Whistle" and "Boombayah", their first number-one entries on South Korea's Gaon Digital Chart and the Billboard World Digital Song Sales chart, respectively.</p>
             <br>  
             <p>Blackpink is the highest-charting female Korean act on the Billboard Hot 100, peaking at number 13 with "Ice Cream" (2020), and on the Billboard 200, peaking at number two with The Album (2020), the first-ever album by a Korean girl group to sell more than one million copies. They were the first Korean girl group to enter and top Billboard's Emerging Artists chart and to top the Billboard World Digital Song Sales chart three times. Blackpink was also the first female Korean act to receive a certification from the Recording Industry Association of America (RIAA) with their hit single "Ddu-Du Ddu-Du" (2018), whose music video is currently the most-viewed by a Korean group on YouTube. They have the most top 40 hits in the United Kingdom among all Korean artists, and their 2018 song "Kiss and Make Up", a collaboration with Dua Lipa, was the first by a Korean group to receive a certification from the British Phonographic Industry (BPI) and a platinum certification from the Australian Recording Industry Association (ARIA). <a href="https://en.wikipedia.org/wiki/Blackpink">Go to Wiki for more...</a> </p>
+            <br>
+            <h2>BLACKPINK's music videos</h2>
+            <div class="main-carousel">
+                <div class="button">
+                    <button id="previous" onclick="prevoiusly()"><img width = "30px" height = "30px" src="previous.png"></button>
+                </div>
+                <div class="carousel-cell">
+                    <iframe id = "first" width="100%" height="315" src="https://www.youtube.com/embed/ioNng23DkIM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-cell">
+                    <iframe id = "second" width="100%" height="315" src="https://www.youtube.com/embed/2S24-y0Ij3Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div>
+                    <button id="next" onclick="later()"><img width = "30px" height = "30px" src="next.png" class = "next"></button>
+                </div>
+            </div>
         </div>
     <script>
         var section = document.querySelector('section');
         window.addEventListener('scroll', function(){
             var value = window.scrollY;
             section.style.clipPath = "circle(" + value + "px at center)";
-        })
+        });
+
+        var links = ["https://www.youtube.com/embed/ioNng23DkIM", "https://www.youtube.com/embed/2S24-y0Ij3Y", "https://www.youtube.com/embed/dISNgvVpWlo", "https://www.youtube.com/embed/Amq-qlqbjYA", "https://www.youtube.com/embed/dyRsYk0LyA8", "https://www.youtube.com/embed/vRXZj0DzXIA", "https://www.youtube.com/embed/IHNzOHi8sJs", "https://www.youtube.com/embed/FzVR_fymZw4", "https://www.youtube.com/embed/9pdj4iJD08s", "https://www.youtube.com/embed/bwmSjveL3Lc"];
+        var f = 0;
+        var s = 1;
+        document.getElementById('first').src = links[f];
+        document.getElementById('second').src = links[s];
+        function prevoiusly(){
+            s = f;
+            f = f-1;
+            if (f < 0){
+                f = links.length - 1;
+            }
+            document.getElementById('first').src = links[f];
+            document.getElementById('second').src = links[s];
+        }
+        function later(){
+            f = s;
+            s = s + 1;
+            if (s == links.length){
+                s = 0;
+            }
+            document.getElementById('first').src = links[f];
+            document.getElementById('second').src = links[s];
+        }
     </script>
     </body>
 </html>
